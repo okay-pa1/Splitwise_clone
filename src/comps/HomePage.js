@@ -14,7 +14,7 @@ export default function HomePage() {
     <>
       <header>
         <nav className="hnav">
-          <h3 id="title">Wisdom Split</h3>
+          <h3 id="title">Wisdom Split </h3>
           <ul className="items">
             <li>
               <button className="lbtn" onClick={goToLogin}>
