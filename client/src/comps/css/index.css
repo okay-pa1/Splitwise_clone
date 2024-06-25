@@ -285,6 +285,10 @@ body {
   margin-right: 10px;
 }
 
+.group-info {
+  margin: 15px;
+}
+
 .num {
   font-weight: bold;
   font-size: 18px;
@@ -298,7 +302,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
 }
 
 .member-name {
@@ -489,4 +493,21 @@ label {
   width: 80%;
   height: auto;
   border-radius: 10px;
+}
+
+.simplified-debts {
+  text-align: center;
+  color: blue;
+  margin-top: 50px;
+}
+
+.simplified-debts h2 {
+  margin-bottom: 10px;
+}
+
+.simplified-debts div {
+  margin-bottom: 5px;
+}
+.flex-expense {
+  display: flex;
 }

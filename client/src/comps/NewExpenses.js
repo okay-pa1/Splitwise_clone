@@ -13,7 +13,7 @@ const NewExpenses = () => {
   };
   const [numberOfUsers, setNumberOfUsers] = useState(1);
   const [userNames, setUserNames] = useState([""]);
-
+  const [group, setGroupName] = useState("");
   const handleNumberOfUsersChange = (e) => {
     const newNumberOfUsers = parseInt(e.target.value);
     setNumberOfUsers(newNumberOfUsers);
@@ -28,9 +28,15 @@ const NewExpenses = () => {
       return updatedUserNames;
     });
   };
-
+  const handleGroupChange = (h) => {
+    setGroupName(h);
+  };
   const handleSubmit = () => {
-    console.log("User Names:", userNames);
+    console.log(userNames, numberOfUsers, group, "from new expenses");
+    navigate("/newexpenses/singleexpenses", {
+      state: { numberOfUsers, userNames, group },
+    });
+    // useNavigate.push("/newexpenses/oldexpenses", { value: numberOfUsers });
   };
 
   const renderInputBoxes = () => {
@@ -51,6 +57,14 @@ const NewExpenses = () => {
       <div className="new-input modal">
         <p>Enter the new expense</p>
         <label htmlFor="numberOfUsers">Number of Users:</label>
+        <input
+          // key={index}
+          type="text"
+          // value={name}
+          className="new-input"
+          onChange={(e) => handleGroupChange(e.target.value)}
+          placeholder={`Enter name of the group`}
+        />
         <input
           id="numberOfUsers"
           type="number"
