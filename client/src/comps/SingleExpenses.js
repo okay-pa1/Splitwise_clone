@@ -169,7 +169,7 @@ function SingleExpenses() {
         <h2>Simplified Debts</h2>
         {simplifiedDebts.map((transaction, index) => (
           <div key={index}>
-            User {transaction.from} owes User {transaction.to} $
+            User {transaction.from} owes User {transaction.to}₹
             {transaction.amount.toFixed(2)}
           </div>
         ))}

@@ -33,12 +33,14 @@ export default function HomePage() {
         <div class="side">
           <h2>Welcome</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel enim
-            rerum quis consequatur aliquid ullam ipsam nihil neque similique
-            cumque iure nobis mollitia consequuntur, est, modi reprehenderit
-            quibusdam nemo commodi expedita veritatis? Officiis rem vitae facere
-            iusto sed animi impedit.
+            Welcome to Wisdom Split, your go-to solution for effortless expense
+            management and debt simplification. Whether you're sharing expenses
+            with friends, splitting bills with roommates, or managing group
+            trips, Wisdom Split makes it easy to track, calculate, and settle
+            up. Join us today and experience the simplicity of smart financial
+            management.
           </p>
+
           <button onClick={goToSignUp}>Get Started</button>
         </div>
         <div class="imagediv">

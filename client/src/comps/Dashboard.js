@@ -18,17 +18,17 @@ function Dashboard() {
       <div className="dashboard">
         <h1>Dashboard</h1>
         <p>
-          Welcome to your splitwise application. Here you can manage group
+          Welcome to your Wisdom wise application. Here you can manage group
           expenses easily.
         </p>
       </div>
       <div>
         <nav className="btn-flex">
           <button className="btn" onClick={handleOldExpensesClick}>
-            OldExpenses
+            All Expenses
           </button>
           <button className="btn" onClick={handleNewExpensesClick}>
-            NewExpenses
+            Create a New Group
           </button>
         </nav>
       </div>

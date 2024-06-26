@@ -9,53 +9,57 @@
   align-items: center;
   max-width: 350px;
   position: absolute;
-  top: 50%; /* center the div horizontally and add some margin */
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px; /* add some padding to create some space */
-  background-color: #f9f9f9; /* add a light gray background */
-  border: 1px solid #ccc; /* add a subtle border */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a subtle shadow */
-  border-radius: 10px; /* add some rounded corners */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
 
 /* Style the input fields */
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-  width: 100%; /* make the input fields full-width */
-  height: 40px; /* adjust the height to your liking */
-  margin-bottom: 20px; /* add some space between input fields */
-  padding: 10px; /* add some padding to create some space */
-  border: 1px solid #ccc; /* add a subtle border */
-  border-radius: 5px; /* add some rounded corners */
-  font-size: 16px; /* adjust the font size to your liking */
+  width: 100%;
+  height: 40px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="password"]:focus {
-  border-color: #aaa; /* change the border color on focus */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* add a subtle shadow on focus */
+  border-color: #007bff;
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.1);
 }
 
 /* Style the button */
 button[type="submit"] {
-  width: 100%; /* make the button full-width */
-  height: 40px; /* adjust the height to your liking */
-  background-color: #4caf50; /* add a green background */
-  color: #fff; /* add white text */
-  border: none; /* remove the border */
-  border-radius: 5px; /* add some rounded corners */
-  cursor: pointer; /* change the cursor to a pointer */
+  width: 100%;
+  height: 40px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 button[type="submit"]:hover {
-  background-color: #3e8e41; /* change the background color on hover */
+  background-color: #3e8e41;
+  transform: translateY(-3px);
 }
 
 .blue {
-  font-size: 30;
+  font-size: 30px;
   background-color: transparent;
   border: none;
   color: blue;
@@ -66,9 +70,12 @@ button[type="submit"]:hover {
 .App {
   text-align: center;
 }
+
 body {
   background-color: white;
+  color: black;
 }
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -83,7 +90,6 @@ body {
 .App-header {
   background-color: red;
   min-height: 100vh;
-
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -104,16 +110,16 @@ body {
   }
 }
 
-/* dashboard  */
+/* Dashboard */
 .btn-flex {
   display: flex;
-  gap: 50px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 200px;
   margin-top: 100px;
   padding: 100px;
+  gap: 50px;
 }
 
 .btn {
@@ -122,9 +128,6 @@ body {
   height: 50px;
   cursor: pointer;
 }
-body {
-  color: black;
-}
 
 .new-input {
   color: blue;
@@ -132,6 +135,7 @@ body {
   flex-direction: column;
   width: 200px;
 }
+
 .modal {
   background-color: grey;
   margin-left: 600px;
@@ -150,25 +154,29 @@ body {
 .old-head {
   margin-left: 650px;
 }
+
 .old-btn {
   cursor: pointer;
 }
+
 .modal {
   display: inline-block;
 }
+
 .modal {
-  width: 300px; /* Adjust width as needed */
+  width: 300px;
   padding: 20px;
   background-color: #f0f0f0;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-/* Optional: Style form elements */
+
 .modal form {
   display: flex;
   flex-direction: column;
 }
+
 .modal input[type="text"],
 .modal input[type="password"],
 .modal button {
@@ -178,26 +186,31 @@ body {
   border-radius: 3px;
   font-size: 16px;
 }
+
 .modal button {
   background-color: #007bff;
   color: white;
   cursor: pointer;
 }
+
 .modal button:hover {
   background-color: #0056b3;
 }
+
 .Old_Expenses {
-  flex: 1; /* Take up remaining space */
+  flex: 1;
   background-color: #f0f0f0;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 .old-head {
   color: blue;
   font-size: 18px;
 }
+
 .old-btn {
   padding: 10px 20px;
   background-color: #007bff;
@@ -208,22 +221,25 @@ body {
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
 .old-btn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3;
 }
+
 .exp-num,
 .exp-name {
   font-size: 18px;
 }
+
 .dashboard {
   width: 100%;
-  max-width: 1200px; /* Set maximum width */
-  margin: 20px auto; /* Center horizontally */
+  max-width: 1200px;
+  margin: 20px auto;
   padding: 30px;
-  background-color: #007bff; /* Main blue */
-  color: white; /* White text color */
+  background-color: #007bff;
+  color: white;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
 .dashboard h1 {
@@ -235,6 +251,7 @@ body {
   font-size: 18px;
   line-height: 1.6;
 }
+
 .btn {
   padding: 20px;
   background-color: #007bff;
@@ -243,39 +260,38 @@ body {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s;
   width: 200px;
   height: 80px;
 }
 
 .btn:hover {
   background-color: #0056b3;
+  transform: translateY(-3px);
 }
+
 .expense-container {
-  background-color: #007bff; /* Main blue color */
+  background-color: #007bff;
   color: white;
   padding: 20px;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px; /* Adjust width as needed */
-  margin: auto; /* Center horizontally */
-  margin-top: 50px; /* Adjust top margin for vertical centering */
+  width: 300px;
+  margin: auto;
+  margin-top: 50px;
 }
 
 .group-info {
   margin-bottom: 10px;
 }
 
-.group-name {
+.group-name,
+.group-number {
   display: block;
   font-weight: bold;
   font-size: 18px;
 }
-.group-number {
-  display: block;
-  font-weight: bold;
-  font-size: 17px;
-}
+
 .total-members {
   display: flex;
   align-items: center;
@@ -283,10 +299,6 @@ body {
 
 .total-members p {
   margin-right: 10px;
-}
-
-.group-info {
-  margin: 15px;
 }
 
 .num {
@@ -309,20 +321,19 @@ body {
   font-weight: bold;
 }
 
-.amount {
-  font-size: 16px;
-  font-weight: bold;
-}
+.amount,
 .single-id {
   font-size: 16px;
   font-weight: bold;
 }
+
 .single-head {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
 }
+
 .btn-expense {
   padding: 20px;
   background-color: #007bff;
@@ -331,22 +342,25 @@ body {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s;
   width: 200px;
   height: 80px;
   margin-left: 670px;
   margin-top: 70px;
 }
+
 .btn-expense:hover {
   background-color: #0056b3;
+  transform: translateY(-3px);
 }
+
 .expense-form {
-  width: 300px; /* Adjust width as needed */
-  margin: 0 auto; /* Center horizontally */
+  width: 300px;
+  margin: 0 auto;
   padding: 20px;
-  background-color: #007bff; /* Main blue color */
+  background-color: #007bff;
   color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin-top: 70px;
 }
@@ -368,17 +382,18 @@ label {
 }
 
 .btn-submit {
-  background-color: #0056b3; /* Darker blue */
+  background-color: #0056b3;
   color: white;
   border: none;
   padding: 10px 30px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s;
 }
 
 .btn-submit:hover {
-  background-color: #00449e; /* Darker blue on hover */
+  background-color: #00449e;
+  transform: translateY(-3px);
 }
 
 .hnav {
@@ -386,8 +401,8 @@ label {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  background-color: #f9f9f9; /* optional */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* optional */
+  background-color: #f9f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .items {
@@ -396,7 +411,7 @@ label {
   padding: 0;
   display: flex;
   align-items: center;
-  margin-left: auto; /* add this to move the buttons to the right */
+  margin-left: auto;
 }
 
 .items li {
@@ -415,26 +430,26 @@ label {
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease-in-out; /* add transition effect */
+  transition: background-color 0.3s ease-in-out;
 }
 
 .lbtn:hover {
-  background-color: #f7f7f7; /* change background color on hover */
+  background-color: #f7f7f7;
 }
 
 .sbtn {
-  background-color: #c6efce; /* light green */
+  background-color: #c6efce;
   border: none;
   padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  transition: box-shadow 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out, transform 0.3s;
 }
 
 .sbtn:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-  transform: translateY(-5px);
+  transform: translateY(-3px);
 }
 
 .hnav.items li:last-child {
@@ -508,6 +523,79 @@ label {
 .simplified-debts div {
   margin-bottom: 5px;
 }
+
 .flex-expense {
   display: flex;
+}
+
+.modal {
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.modal p {
+  font-size: 1.2em;
+  margin-bottom: 1em;
+  color: #007bff;
+}
+
+.modal label {
+  display: block;
+  margin-bottom: 0.5em;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.modal input[type="text"],
+.modal input[type="number"],
+.modal select {
+  width: 100%;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  border: 1px solid #007bff;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 1em;
+}
+
+.modal button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.modal button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+}
+
+.btn-flex {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 1em;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 0.5em 1em;
+  border-radius: 4px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
 }
