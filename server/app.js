@@ -1,9 +1,9 @@
-const express = require("express");
-const cors = require("cors");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const userModel = require("./models/usercreds.js");
-
+import express from "express";
+import cors from "cors";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import authRoute from "./routes/auth.js";
+import groupRoute from "./routes/groups.js";
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -19,29 +19,26 @@ const connect = async () => {
   }
 };
 
-app.post("/signin", (req, res) => {
-  userModel
-    .create(req.body)
-    .then((result) => res.json(result))
-    .catch((error) => res.json(error));
+mongoose.connection.on("connected", () => {
+  console.log("mongodb connected");
 });
 
-app.post("/login", (req, res) => {
-  const { email, password } = req.body;
-  userModel
-    .findOne({ email: email })
-    .then((user) => {
-      if (user) {
-        if (user.password === password) {
-          res.json("Success");
-        } else {
-          res.json("Incorrect Password");
-        }
-      } else {
-        res.json("No such user");
-      }
-    })
-    .catch((error) => console.log(error));
+mongoose.connection.on("disconnected", () => {
+  console.log("mongodb disconnected");
+});
+
+//middlewares
+app.use("/auth", authRoute);
+app.use("/group", groupRoute);
+app.use((err, req, res, next) => {
+  const errStatus = err.status || 500;
+  const errMessage = err.message || "Something went wrong";
+  return res.status(errStatus).json({
+    success: false,
+    status: errStatus,
+    message: errMessage,
+    stack: err.stack,
+  });
 });
 
 app.listen(5000, () => {
