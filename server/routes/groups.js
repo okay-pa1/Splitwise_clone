@@ -10,9 +10,14 @@ router.post("/creategroup/:userid", async (req, res, next) => {
   });
   try {
     const savedGroup = await newGroup.save();
-    await User.findByIdAndUpdate(req.params.userid, {
-      $push: { groups: savedGroup._id },
-    });
+    await Promise.all(
+      req.body.members.map(async (username) => {
+        await User.findOneAndUpdate(
+          { username },
+          { $push: { groups: savedGroup._id } }
+        );
+      })
+    );
     res.status(200).json("Created Group");
   } catch (err) {
     next(err);
@@ -31,13 +36,19 @@ router.get("/getallgroups/:userid", async (req, res, next) => {
 });
 
 //deleting groups
-router.delete("/deletegroup/:userid/:id", async (req, res, next) => {
+router.delete("/deletegroup/:id", async (req, res, next) => {
   try {
-    const userId = req.params.userid;
+    const group = await Group.findById(req.params.id);
     await Group.findByIdAndDelete(req.params.id);
-    await User.findByIdAndUpdate(userId, {
-      $pull: { groups: req.params.id },
-    });
+    const members = group.members;
+    await Promise.all(
+      members.map(async (username) => {
+        await User.findOneAndUpdate(
+          { username },
+          { $pull: { groups: req.params.id } }
+        );
+      })
+    );
     res.status(200).json("Deleted group");
   } catch (err) {
     next(err);
