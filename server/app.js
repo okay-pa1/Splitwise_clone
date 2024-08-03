@@ -4,9 +4,9 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoute from "./routes/auth.js";
 import groupRoute from "./routes/groups.js";
+import vtRoute from "./utils/verifyToken.js";
+import cookieparser from "cookie-parser";
 const app = express();
-app.use(express.json());
-app.use(cors());
 
 dotenv.config();
 
@@ -28,8 +28,13 @@ mongoose.connection.on("disconnected", () => {
 });
 
 //middlewares
+app.use(express.json());
+app.use(cors());
+app.use(cookieparser());
+
 app.use("/auth", authRoute);
 app.use("/group", groupRoute);
+app.use("/vt", vtRoute);
 app.use((err, req, res, next) => {
   const errStatus = err.status || 500;
   const errMessage = err.message || "Something went wrong";

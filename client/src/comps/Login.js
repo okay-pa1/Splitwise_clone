@@ -10,23 +10,17 @@ const Login = () => {
     navigate("/signin");
   };
   const formRef = useRef(null);
-  const loginToApp = (e) => {
+  const loginToApp = async (e) => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
     const data = {};
     formData.forEach((value, key) => {
       data[key] = value;
     });
-    axios
-      .post("http://localhost:5000/login", data)
-      .then((result) => {
-        if (result.data === "Success") {
-          navigate("/dashboard");
-        } else {
-          console.log(result.data);
-        }
-      })
-      .catch((err) => console.log(err));
+    const res = await axios.post("/auth/login", data);
+    if (res.status === 200) {
+      navigate("/dashboard");
+    }
   };
   return (
     <div>
@@ -34,7 +28,7 @@ const Login = () => {
         <h1>Login</h1>
         <br />
         <form ref={formRef} onSubmit={loginToApp}>
-          <input type="email" name="email" placeholder="e-mail" required />
+          <input type="text" name="username" placeholder="username" required />
           <input
             type="password"
             name="password"

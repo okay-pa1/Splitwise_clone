@@ -10,20 +10,30 @@ export default function SignIn() {
     navigate("/login");
   };
   //all the states
-  const [name, setName] = useState("");
+  const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setpwdConf] = useState("");
   const [error, setError] = useState("");
 
   //Signing In
-  const signIn = (e) => {
+  const signIn = async (e) => {
     e.preventDefault();
+    const formId = document.getElementById("signinform");
     if (password === passwordConfirm) {
-      axios
-        .post("http://localhost:5000/signin", { name, email, password })
-        .then((result) => console.log(result))
-        .catch((err) => console.log(err));
+      try {
+        await axios.post("auth/signup", {
+          username,
+          email,
+          password,
+        });
+        alert("User successfully registered");
+        formId.reset();
+      } catch (err) {
+        alert("error signing in");
+        formId.reset();
+        console.log(err);
+      }
     }
   };
 
@@ -41,7 +51,7 @@ export default function SignIn() {
       <div className="center">
         <h1>Sign Up</h1>
         <br />
-        <form action="">
+        <form action="" id="signinform">
           <input
             type="text"
             onChange={(e) => setName(e.target.value)}

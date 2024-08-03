@@ -1,9 +1,10 @@
 import express from "express";
 import User from "../models/usercreds.js";
 import Group from "../models/groups.js";
+import verifyToken from "../utils/verifyToken.js";
 const router = express.Router();
 
-router.post("/creategroup/:userid", async (req, res, next) => {
+router.post("/creategroup", verifyToken, async (req, res, next) => {
   const newGroup = new Group({
     groupname: req.body.groupname,
     members: req.body.members,
@@ -25,10 +26,11 @@ router.post("/creategroup/:userid", async (req, res, next) => {
 });
 
 //get all groups
-router.get("/getallgroups/:userid", async (req, res, next) => {
+router.get("/getallgroups", verifyToken, async (req, res, next) => {
   try {
-    const user = await User.findById(req.params.userid);
-    const groups = user.groups;
+    const user = await User.findById(req._user.id);
+    const groupIds = user.groups;
+    const groups = await Promise.all(groupIds.map((id) => Group.findById(id)));
     res.status(200).json(groups);
   } catch (err) {
     next(err);
@@ -36,7 +38,7 @@ router.get("/getallgroups/:userid", async (req, res, next) => {
 });
 
 //deleting groups
-router.delete("/deletegroup/:id", async (req, res, next) => {
+router.delete("/deletegroup/:id", verifyToken, async (req, res, next) => {
   try {
     const group = await Group.findById(req.params.id);
     await Group.findByIdAndDelete(req.params.id);

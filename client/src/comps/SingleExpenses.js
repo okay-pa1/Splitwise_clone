@@ -73,8 +73,8 @@ function SingleExpenses() {
       const settlementAmount = Math.min(debtor.balance, creditor.balance);
 
       transactions.push({
-        from: debtor.index + 1,
-        to: creditor.index + 1,
+        from: userNames[debtor.index],
+        to: userNames[creditor.index],
         amount: settlementAmount,
       });
 
@@ -89,7 +89,7 @@ function SingleExpenses() {
   };
   const handleAllExpenses = () => {
     console.log("hello");
-    navigate("/newexpenses/singleexpenses/oldexpenses", { state: { group } });
+    navigate("/oldexpenses", { state: { group } });
   };
   const netBalances = calculateNetBalances(expenses);
   const simplifiedDebts = simplifyDebts(netBalances);
@@ -103,6 +103,17 @@ function SingleExpenses() {
       </div>
     ));
   };
+
+  //dropdown that sumanth asked
+  /*const dropDownOptions = () => {
+    return userNames.map((user, index) => {
+      return (
+        <option key={index} value={index}>
+          {user}
+        </option>
+      );
+    });
+  };*/
   return (
     <>
       <div className="expense-container">
@@ -135,6 +146,9 @@ function SingleExpenses() {
                 onChange={handleFromUserIdChange}
                 placeholder="Enter User ID"
               />
+              {/* <select onChange={handleFromUserIdChange}>
+                {dropDownOptions()}
+              </select> */}
             </div>
             <div className="form-group">
               <label htmlFor="toUserIds">To User IDs (comma separated):</label>
@@ -169,7 +183,7 @@ function SingleExpenses() {
         <h2>Simplified Debts</h2>
         {simplifiedDebts.map((transaction, index) => (
           <div key={index}>
-            User {transaction.from} owes User {transaction.to}₹
+            {transaction.from} owes {transaction.to} ₹
             {transaction.amount.toFixed(2)}
           </div>
         ))}

@@ -2,6 +2,7 @@ import express from "express";
 import User from "../models/usercreds.js";
 import bcrypt from "bcrypt";
 import { createError } from "../utils/error.js";
+import jwt from "jsonwebtoken";
 
 const router = express.Router();
 
@@ -31,7 +32,17 @@ router.post("/login", async (req, res, next) => {
       user.password
     );
     if (!isPasswordCrct) return next(createError(400, "Incorrect password"));
-    res.status(200).send("Logged in");
+
+    const token = jwt.sign({ id: user._id }, process.env.JWT, {
+      expiresIn: "2h",
+    });
+
+    const { password, ...otherDetails } = user._doc;
+
+    res
+      .cookie("token", token, { httpOnly: true })
+      .status(200)
+      .json({ ...otherDetails });
   } catch (err) {
     next(err);
   }

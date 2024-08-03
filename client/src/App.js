@@ -7,6 +7,7 @@ import Dashboard from "./comps/Dashboard.js";
 import OldExpenses from "./comps/OldExpenses.js";
 import NewExpenses from "./comps/NewExpenses.js";
 import SingleExpenses from "./comps/SingleExpenses.js";
+import ProtectedRoute from "./comps/ProtectedRoute.js";
 const App = () => {
   return (
     <Routes>
